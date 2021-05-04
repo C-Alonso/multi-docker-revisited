@@ -14,7 +14,7 @@ after_success:
   - docker build -t carlosalonsogtz/multi-worker-v2 ./worker
   - docker build -t carlosalonsogtz/multi-nginx-v2 ./nginx
 
-  - echo "$DOCKER_PASSWORD" | docker login -u "DOCKER_ID" --password-stdin
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 
   - docker push carlosalonsogtz/multi-client-v2
   - docker push carlosalonsogtz/multi-server-v2
