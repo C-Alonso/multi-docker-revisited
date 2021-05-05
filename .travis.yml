@@ -20,3 +20,15 @@ after_success:
   - docker push carlosalonsogtz/multi-server-v2
   - docker push carlosalonsogtz/multi-worker-v2
   - docker push carlosalonsogtz/multi-nginx-v2
+
+deploy:
+  provider: elasticbeanstalk
+  region: eu-central-1
+  app: multi-docker-rev
+  env: Multidockerrev-env
+  bucket_name: elasticbeanstalk-eu-central-1-784097295211
+  bucket_path: multi-docker-rev
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
